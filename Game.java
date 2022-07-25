@@ -42,60 +42,60 @@ public class Game{
         returning.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame1.setVisible(false);
-                logIn();
+                //logIn();
             }
         });
     }
 
-    public static void logIn(){
+    // public static void logIn(){
 
-        JPanel panel2 = new JPanel();
-        JFrame frame2 = new JFrame();
-        frame2.setSize(350, 200);
-        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame2.setVisible(true);
-        frame2.add(panel2);
+    //     JPanel panel2 = new JPanel();
+    //     JFrame frame2 = new JFrame();
+    //     frame2.setSize(350, 200);
+    //     frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //     frame2.setVisible(true);
+    //     frame2.add(panel2);
 
-        panel2.setLayout(null);
+    //     panel2.setLayout(null);
 
-        JLabel userLabel = new JLabel("User");
-        userLabel.setBounds(10, 20, 80, 25);
-        panel2.add(userLabel);
+    //     JLabel userLabel = new JLabel("User");
+    //     userLabel.setBounds(10, 20, 80, 25);
+    //     panel2.add(userLabel);
 
-        JTextField userText = new JTextField(20);
-        userText.setBounds(100, 20, 165, 25);
-        panel2.add(userText);
+    //     JTextField userText = new JTextField(20);
+    //     userText.setBounds(100, 20, 165, 25);
+    //     panel2.add(userText);
 
-        JLabel passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(10, 50, 80, 25);
-        panel2.add(passwordLabel);
+    //     JLabel passwordLabel = new JLabel("Password");
+    //     passwordLabel.setBounds(10, 50, 80, 25);
+    //     panel2.add(passwordLabel);
 
-        JPasswordField passwordText = new JPasswordField();
-        passwordLabel.setBounds(100, 50, 165, 25);
-        panel2.add(passwordText);
+    //     JPasswordField passwordText = new JPasswordField(20);
+    //     passwordLabel.setBounds(100, 50, 165, 25);
+    //     panel2.add(passwordText);
 
-        JButton button = new JButton("Login");
-        button.setBounds(10, 80, 80, 25);
-        panel2.add(button);
+    //     JButton button = new JButton("Login");
+    //     button.setBounds(10, 80, 80, 25);
+    //     panel2.add(button);
 
-        JLabel success = new JLabel("");
-        success.setBounds(10, 110, 300, 25);
-        panel2.add(success);
+    //     JLabel success = new JLabel("");
+    //     success.setBounds(10, 110, 300, 25);
+    //     panel2.add(success);
 
-        button.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                String user = userText.getText();
-                String password = passwordText.getText();
+    //     button.addActionListener(new ActionListener(){
+    //         public void actionPerformed(ActionEvent e){
+    //             String user = userText.getText();
+    //             String password = passwordText.getText();
 
-                if (user.equals("Soham") && password.equals("testing")){
-                    frame2.setVisible(false);
-                } else {
-                    passwordText.setText("");
-                    success.setText("Wrong Username or Password.");
-                }
+    //             if (user.equals("Soham") && password.equals("testing")){
+    //                 frame2.setVisible(false);
+    //             } else {
+    //                 passwordText.setText("");
+    //                 success.setText("Wrong Username or Password.");
+    //             }
 
-            }
-        });
+    //         }
+    //     });
 
-    }
+    // }
 }

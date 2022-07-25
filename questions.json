@@ -1,3 +1,280 @@
 [
-    
+    {
+        "easy": {
+            "Question 1": {
+                "Question": "What is the output of the following code? \\nvar= \"James Bond\" \\nprint(var[2::-1])",
+                "Correct Answer": "maJ",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "Jam",
+                    "Wrong Answer 2": "dno",
+                    "Wrong Answer 3": "dnoB semaJ"
+                },
+                "Explanation": "Pick a range of items starting in the reverse direction starting from index 2 with step 1."
+            },
+            "Question 2": {
+                "Question": "What is the output of the following code? \\nvalueOne = 5 ** 2 \\nvalueTwo = 5 ** 3 \\nprint(valueOne) \\nprint(valueTwo)",
+                "Correct Answer": "25\\n125",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "10\\n15",
+                    "Wrong Answer 2": "125\\n250",
+                    "Wrong Answer 3": "Error: Invalid Syntax"
+                },
+                "Explanation": "Using two multiplication symbols, we can make a power relationship in Python. We call the ** operator an exponent operator. For example, the result of the expression 5 ** 3 is 125."
+            },
+            "Question 3": {
+                "Question": "What is the data type of print(type(10))?",
+                "Correct Answer": "int",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "float",
+                    "Wrong Answer 2": "integer",
+                    "Wrong Answer 3": "String"
+                },
+                "Explanation": "The data type of a number, 10, is int."
+            },
+            "Question 4": {
+                "Question": "Select the right way to create a string literal Ault'Kelly.",
+                "Correct Answer": "str1 = 'Ault\\'Kelly'",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "str1 = 'Ault\\\\'Kelly'",
+                    "Wrong Answer 2": "str1 = \"\"\"Ault'Kelly\"\"\"",
+                    "Wrong Answer 3": "str1 = \"Ault'Kelly\""
+                },
+                "Explanation": "Use backslashes to add special characters like single quotes."
+            },
+            "Question 5": {
+                "Question": "What is the output of the expression  print(-18 // 4)?",
+                "Correct Answer": "-5",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "-4",
+                    "Wrong Answer 2": "4",
+                    "Wrong Answer 3": "5"
+                },
+                "Explanation": "In the case of floor division operator (//), when the result is negative, the result is rounded down to the next smallest (big negative) integer."
+            },
+            "Question 6": {
+                "Question": "What is the value of the following Python Expression, print(36 / 4)?",
+                "Correct Answer": "9.0",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "9",
+                    "Wrong Answer 2": "9.00",
+                    "Wrong Answer 3": "90"
+                },
+                "Explanation": "Remember the result of a division operator(/), is always float value."
+            },
+            "Question 7": {
+                "Question": "What will be displayed as an output on the screen? \\nx = float('NaN') \\nprint('%f, %e, %F, %E' % (x, x, x, x))",
+                "Correct Answer": "nan, nan, NAN, NAN",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "nan, NaN, nan, NaN",
+                    "Wrong Answer 2": "NaN, NaN, NaN, NaN",
+                    "Wrong Answer 3": "NAN, NAN, NAN, NAN"
+                },
+                "Explanation": "%f, %e produces lowercase output, and %F, %E produces uppercase output."
+            },
+            "Question 8": {
+                "Question": "What is the output of the following function call? \\ndef fun1(num): \\nreturn num + 25 \\n\\nfun1(5) \\nprint(num)",
+                "Correct Answer": "NameError",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "25",
+                    "Wrong Answer 2": "5",
+                    "Wrong Answer 3": "125"
+                },
+                "Explanation": "We must accept the return value of a function into a variable. so we can access it in outside function like this: \\nnum = fun1(5) \\nprint(num)"
+            },
+            "Question 9": {
+                "Question": "What is the output of the following for loop and range() function? \\nfor num in range(-2,-5,-1): \\nprint(num, end=\", \")",
+                "Correct Answer": "-2, -3, -4,",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "-2, -1, -3, -4",
+                    "Wrong Answer 2": "-2, -1, 0, 1, 2, 3,",
+                    "Wrong Answer 3": "-2, -1, 0"
+                },
+                "Explanation": "num goes from -2 to -5 in increments of -1."
+            }
+        },
+        "Medium": {
+            "Question 1": {
+                "Question": "What is the output of print(abs(-45.300))",
+                "Correct Answer": "45.3",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "-45.3",
+                    "Wrong Answer 2": "-45.300",
+                    "Wrong Answer 3": "45.300"
+                },
+                "Explanation": "The abs(x) method returns the absolute value of x."
+            },
+            "Question 2": {
+                "Question": "What is the output of the following math function? import math \\nprint(math.ceil(252.4)) \\nprint(math.floor(252.4))",
+                "Correct Answer": "253 \\n252",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "252 \\n252",
+                    "Wrong Answer 2": "252 \\n253",
+                    "Wrong Answer 3": "253 \\n253"
+                },
+                "Explanation": "The math.ceil(x) method returns the smallest integer not less than x. The math.floor(x) method returns the largest integer not greater than x."
+            },
+            "Question 3": {
+                "Question": "What is the output of the following code? \\nprint(int(2.999))",
+                "Correct Answer": "2",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "3",
+                    "Wrong Answer 2": "2.999",
+                    "Wrong Answer 3": "ValueError: invalid literal for int()"
+                },
+                "Explanation": "We can convert float to int using the int() constructor."
+            },
+            "Question 4": {
+                "Question": "What is the type of the following variable? \\nx = -5j",
+                "Correct Answer": "complex",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "int",
+                    "Wrong Answer 2": "real",
+                    "Wrong Answer 3": "imaginary"
+                },
+                "Explanation": "This is how you set up complex numbers in python."
+            },
+            "Question 5": {
+                "Question": "What is the output of the following round() function call? \\nprint(round(100.2563, 3)) \\nprint(round(100.000056, 3))",
+                "Correct Answer": "100.256 \\n100.0",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "100.256 \\n100",
+                    "Wrong Answer 2": "100.256 \\n100.00",
+                    "Wrong Answer 3": "100.2563 \\n100.0"
+                },
+                "Explanation": "The round() function returns a rounded version of the specified floating-point number, with the specified number of decimals. The second argument of this function is the number of decimals to use when rounding the number."
+            },
+            "Question 6": {
+                "Question": "Choose the correct function to get the character from ASCII number.",
+                "Correct Answer": "chr(number)",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "ascii(number)",
+                    "Wrong Answer 2": "char(number)",
+                    "Wrong Answer 3": "ASCII(number)"
+                },
+                "Explanation": "The chr() function is used to get the character from the ASCII number. Example: print(chr(112)) will print p."
+            },
+            "Question 7": {
+                "Question": "What is the output of the following string comparison? \\nprint(\"John\" > \"Jhon\") \\nprint(\"Emma\" < \"Emm\")",
+                "Correct Answer": "True \\nFalse",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "False \\nFalse",
+                    "Wrong Answer 2": "True \\nTrue",
+                    "Wrong Answer 3": "False \\nTrue"
+                },
+                "Explanation": "Remember to take unicode values into account when comparing strings of equal length."
+            },
+            "Question 8": {
+                "Question": "Select the correct output of the following String operations. \\nstr1 = 'Welcome' \\nprint (str1[:6] + ' PYnative')",
+                "Correct Answer": "Welcom PYnative",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "Welcome PYnative",
+                    "Wrong Answer 2": "WelcomPYnative",
+                    "Wrong Answer 3": "WelcomePYnative"
+                },
+                "Explanation": "The + operator is used for concatenating. To get a substring from the original string, we can use a slice [], operator. Syntax: str[start:end] If start is missing it takes 0 as the starting index."
+            },
+            "Question 9": {
+                "Question": "Choose the correct function to get the ASCII code of a character.",
+                "Correct Answer": "ord('char')",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "char('char')",
+                    "Wrong Answer 2": "ascii('char')",
+                    "Wrong Answer 3": "chr('char')"
+                },
+                "Explanation": "The ord() function is used to get the ASCII code of the character. Example: print(ord('p')) will print 112."
+            }
+        },
+        "Hard": {
+            "Question 1": {
+                "Question": "What is the output of the following? \\naTuple = (10, 20, 30, 40, 50, 60, 70, 80) \\nprint(aTuple[2:5], aTuple[:4], aTuple[3:])",
+                "Correct Answer": "(30, 40, 50) (10, 20, 30, 40) (40, 50, 60, 70, 80)",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "(20, 30, 40) (10, 20, 30, 40) (40, 50, 60, 70, 80)",
+                    "Wrong Answer 2": "(40, 50, 60) (20, 30, 40, 50) (40, 50, 60, 70, 80)",
+                    "Wrong Answer 3": "(20, 30, 40, 50) (10, 20, 30, 40) (30, 40, 50, 60, 70, 80)"
+                },
+                "Explanation": "To get a sub tuple out of the tuple, we need to specify the range of indexes. We need to specify where to start and where to end the range. Syntax: tuple[start:end] If the start is missing it takes 0 as the starting index."
+            },
+            "Question 2": {
+                "Question": "What is the output of the following tuple operation \\naTuple = (100, 200, 300, 400, 500) \\naTuple.pop(2) \\nprint(aTuple)",
+                "Correct Answer": "AttributeError",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "(100, 200, 400, 500)",
+                    "Wrong Answer 2": "(100, 300, 400, 500)",
+                    "Wrong Answer 3": "(100, 200, 300)"
+                },
+                "Explanation": "A tuple is immutable. Once a tuple is created, you cannot remove its items, but you can delete the tuple completely. If you try to remove the item from the tuple, you will receive an AttributeError: 'tuple' object has no attribute 'pop'."
+            },
+            "Question 3": {
+                "Question": "What is the output of the following tuple operation? \\naTuple = (100,) \\nprint(aTuple * 2)",
+                "Correct Answer": "(100, 100)",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "TypeError",
+                    "Wrong Answer 2": "(200)",
+                    "Wrong Answer 3": "(100)"
+                },
+                "Explanation": "We can use * operator to repeat the tuple values n number of times. \\nFor example: \\n(\"abc\",)*3 will return ('abc', 'abc', 'abc')"
+            },
+            "Question 4": {
+                "Question": "What is the type of the following variable? \\naTuple = (\"Orange\") \\nprint(type(aTuple))",
+                "Correct Answer": "str",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "list",
+                    "Wrong Answer 2": "tuple",
+                    "Wrong Answer 3": "array"
+                },
+                "Explanation": "To create a tuple with a single item, you need to add a comma after the item. Otherwise, Python will not recognize the variable as a tuple, and it will treat it as a string type. \\nFor example: \\naTuple = (\"Orange\") \\nprint(type(aTuple)) \\nbTuple = (\"Orange\",) \\nprint(type(bTuple)) \\nOutput: \\n<class 'str'> \\n<class 'tuple'>"
+            },
+            "Question 5": {
+                "Question": "What is the output of the following code? \\naTuple = (100, 200, 300, 400, 500) \\naTuple[1] = 800 \\nprint(aTuple)",
+                "Correct Answer": "TypeError",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "(100, 800, 200, 300, 400, 500)",
+                    "Wrong Answer 2": "(800, 100, 200, 300, 400, 500)",
+                    "Wrong Answer 3": "array"
+                },
+                "Explanation": "A tuple is immutable. Once a tuple is created, you cannot change its values. If you try to change its value, you will receive a TypeError: 'tuple' object does not support item assignment"
+            },
+            "Question 6": {
+                "Question": "Which method is used to sets the position of a file pointer?",
+                "Correct Answer": "seek()",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "tell()",
+                    "Wrong Answer 2": "fseek()",
+                    "Wrong Answer 3": "ftell()"
+                },
+                "Explanation": "A file handle or pointer denotes the position from which the file contents will be read or written. The file handle is also called a file pointer or cursor. The seek() function sets the position of a file pointer and the tell() function returns the current position of a file pointer."
+            },
+            "Question 7": {
+                "Question": "Select the correct access mode to open a file only for exclusive creation.",
+                "Correct Answer": "x",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "t",
+                    "Wrong Answer 2": "w",
+                    "Wrong Answer 3": "a"
+                },
+                "Explanation": "w: Create a new file for writing. If a file already exists, it truncates the file first. Use to create and write content into a new file. x: Open a file only for exclusive creation. If the file already exists, this operation fails. t: Create and open a file in text mode. a: Open a file in the append mode and add new content at the end of the file."
+            },
+            "Question 8": {
+                "Question": "Select the correct method to write a list of lines to a file.",
+                "Correct Answer": "writelines(list)",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "writelist(list)",
+                    "Wrong Answer 2": "write(list)",
+                    "Wrong Answer 3": "writeline(list)"
+                },
+                "Explanation": "The writelines() method is used to write a list of strings into a file. It accepts both string and list as the argument."
+            },
+            "Question 9": {
+                "Question": "Select the correct mode to open a file for appending as well as reading.",
+                "Correct Answer": "a+",
+                "Wrong Answers": {
+                    "Wrong Answer 1": "ar",
+                    "Wrong Answer 2": "rw",
+                    "Wrong Answer 3": "ar+"
+                },
+                "Explanation": "a+ mode opens a file for both the reading and appending. The pointer will be placed at the end of the file and new content will be written after the existing content."
+            }
+        }
+    }
 ]
