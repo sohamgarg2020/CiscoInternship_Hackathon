@@ -1,8 +1,14 @@
 import java.io.*;
 import java.util.*;
 import java.util.Scanner;
+import java.util.Random;
 
 import javax.swing.*;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.nio.file.Files;
@@ -10,12 +16,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.*;
 
+
+
 public class Game{
 
     private static JFrame frame1;
     private static JPanel panel1;
     private static JButton returning;
     private static JButton newuser;
+    private static Avatar player;
     public static void main(String[] args){
         Game g = new Game();
         setupBoard();
@@ -42,60 +51,198 @@ public class Game{
         returning.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame1.setVisible(false);
+                player = new Avatar(null);
                 //logIn();
+                play();
             }
         });
     }
 
-    // public static void logIn(){
+    public static void play(){
+        Scanner myObj = new Scanner(System.in);
+        resources();
+        String number;
+        while (true){
+            System.out.println("Type 1 if you want to get started or type 2 if you want the instructions again. Type 3 if you want to quit the program.");
+            number = myObj.nextLine();
+            if (number.equals("1")){
+                Scanner myOb = new Scanner(System.in);
+                System.out.println("Hello and welcome to the game! What is your name?");
+                String name = myOb.nextLine();
+                System.out.println("Let's get started!");
+        
+                player.setName(name);
+                questions();
+            } else if (number.equals("2")){
+                resources();
+                continue;
+            } else if (number.equals("3")){
+                System.exit(0);
+            } else {
+                continue;
+            }
+        }
+        
+    }
 
-    //     JPanel panel2 = new JPanel();
-    //     JFrame frame2 = new JFrame();
-    //     frame2.setSize(350, 200);
-    //     frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //     frame2.setVisible(true);
-    //     frame2.add(panel2);
+    public static void resources(){
+        System.out.println("Here are some resources for you to learn Python:");
+        System.out.println("https://www.python.org/");
+        System.out.println("https://www.w3schools.com/python/default.asp");
+        System.out.println("https://www.codecademy.com/");
+        System.out.println("");
+    }
+    public static void questions(){
+        int coins = player.getCoins();;
 
-    //     panel2.setLayout(null);
+        JSONParser parser = new JSONParser();
+        try {
+            Scanner myOb = new Scanner(System.in);
+            Object obj = parser.parse(new FileReader("./questions.json"));
+            
+            JSONObject jsonObject = (JSONObject)obj;
+            String difficulty;
+            if (coins < 50){
+                difficulty = "Easy";
+            } else if (50 < coins && coins < 100){
+                difficulty = "Medium";
+            } else {
+                difficulty = "Hard";
+            }
+            JSONArray questions = (JSONArray)jsonObject.get(difficulty);
+            Random rand = new Random();
+            int upperbound = 9;
+            int questionNumber = rand.nextInt(upperbound);
+            JSONObject questionvalue = (JSONObject)questions.get(questionNumber);
+            String aquestion = (String)questionvalue.get("Question");
+            System.out.println(aquestion);
+            String d = (String)questionvalue.get("Correct Answer");
+            JSONObject wrong = (JSONObject)questionvalue.get("Wrong Answers");
+            String c = (String)wrong.get("Wrong Answer 1");
+            String b = (String)wrong.get("Wrong Answer 2");
+            String a = (String)wrong.get("Wrong Answer 3");
+            String explanation = (String)questionvalue.get("Explanation");
 
-    //     JLabel userLabel = new JLabel("User");
-    //     userLabel.setBounds(10, 20, 80, 25);
-    //     panel2.add(userLabel);
+            upperbound = 4;
+            int first;
+            first = rand.nextInt(upperbound);
+            int second = first;
+            while (second == first){
+                second = rand.nextInt(upperbound);
+            }
+            int third = second;
+            while (third == second || third == first){
+                third = rand.nextInt(upperbound);
+            }
+            int fourth = 6-first - second - third;
+            first+=1;
+            second+=1;
+            third+=1;
+            fourth += 1;
+            
+            
 
-    //     JTextField userText = new JTextField(20);
-    //     userText.setBounds(100, 20, 165, 25);
-    //     panel2.add(userText);
+            String number;
+            while (true){
+                character(first, a, b, c, d);
+                character(second, a, b, c, d);
+                character(third, a, b, c, d);
+                character(fourth, a, b, c, d);
+                System.out.println("E) Quit");
+                System.out.println("Choose one option.");
+                number = myOb.nextLine();
+                if (number.equals("A")){
+                    if (first == 4){
+                        System.out.println("Good Job! That is the correct answer!");
+                        player.setCoins(player.getCoins()+10);
+                    } else {
+                        System.out.println("That is the wrong answer!");
+                        if (player.getCoins() == 0){
+                            player.setCoins(0);
+                        } else {
+                            player.setCoins(player.getCoins()-10);
+                        }
+                    }
+                    System.out.println("You now have " + player.getCoins() + " points.");
+                    System.out.println("Here is an explanation:");
+                    System.out.println(explanation);
+                    questions();
+                } else if (number.equals("B")){
+                    if (second == 4){
+                        System.out.println("Good Job! That is the correct answer!");
+                        player.setCoins(player.getCoins()+10);
+                    } else {
+                        System.out.println("That is the wrong answer!");
+                        if (player.getCoins() == 0){
+                            player.setCoins(0);
+                        } else {
+                            player.setCoins(player.getCoins()-10);
+                        }
+                    }
+                    System.out.println("You now have " + player.getCoins() + " points.");
+                    System.out.println("Here is an explanation:");
+                    System.out.println(explanation);
+                    questions();
+                } else if (number.equals("C")){
+                    if (third == 4){
+                        System.out.println("Good Job! That is the correct answer!");
+                        player.setCoins(player.getCoins()+10);
+                    } else {
+                        System.out.println("That is the wrong answer!");
+                        if (player.getCoins() == 0){
+                            player.setCoins(0);
+                        } else {
+                            player.setCoins(player.getCoins()-10);
+                        }
+                    }
+                    System.out.println("You now have " + player.getCoins() + " points.");
+                    System.out.println("Here is an explanation:");
+                    System.out.println(explanation);
+                    questions();
+                } else if (number.equals("D")){
+                    if (fourth == 4){
+                        System.out.println("Good Job! That is the correct answer!");
+                        player.setCoins(player.getCoins()+10);
+                    } else {
+                        System.out.println("That is the wrong answer!");
+                        if (player.getCoins() == 0){
+                            player.setCoins(0);
+                        } else {
+                            player.setCoins(player.getCoins()-10);
+                        }
+                    }
+                    System.out.println("You now have " + player.getCoins() + " points.");
+                    System.out.println("Here is an explanation:");
+                    System.out.println(explanation);
+                    questions();
+                } else if (number.equals("E")){
+                    System.out.println("We hope you had a fun time playing the game!");
+                    System.exit(0);
+                } else {
+                    continue;
+                }
+            }
+            
 
-    //     JLabel passwordLabel = new JLabel("Password");
-    //     passwordLabel.setBounds(10, 50, 80, 25);
-    //     panel2.add(passwordLabel);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-    //     JPasswordField passwordText = new JPasswordField(20);
-    //     passwordLabel.setBounds(100, 50, 165, 25);
-    //     panel2.add(passwordText);
-
-    //     JButton button = new JButton("Login");
-    //     button.setBounds(10, 80, 80, 25);
-    //     panel2.add(button);
-
-    //     JLabel success = new JLabel("");
-    //     success.setBounds(10, 110, 300, 25);
-    //     panel2.add(success);
-
-    //     button.addActionListener(new ActionListener(){
-    //         public void actionPerformed(ActionEvent e){
-    //             String user = userText.getText();
-    //             String password = passwordText.getText();
-
-    //             if (user.equals("Soham") && password.equals("testing")){
-    //                 frame2.setVisible(false);
-    //             } else {
-    //                 passwordText.setText("");
-    //                 success.setText("Wrong Username or Password.");
-    //             }
-
-    //         }
-    //     });
-
-    // }
+    }
+    public static void character(int num, String a, String b, String c, String d){
+        if (num == 1){
+            System.out.println("A) " + a);
+        }
+        if (num == 2){
+            System.out.println("B)" + b);
+        }
+        if (num == 3){
+            System.out.println("C)" + c);
+        }
+        else{
+            System.out.println("D)" + d);
+        }
+        
+    }
 }

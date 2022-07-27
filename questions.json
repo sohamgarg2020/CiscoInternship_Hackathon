@@ -1,6 +1,6 @@
 [
     {
-        "easy": {
+        "Easy": {
             "Question 1": {
                 "Question": "What is the output of the following code? \\nvar= \"James Bond\" \\nprint(var[2::-1])",
                 "Correct Answer": "maJ",
