@@ -148,7 +148,8 @@ public class Game{
                 System.out.println("(B) " + tmp.get(1));
                 System.out.println("(C) " + tmp.get(2));
                 System.out.println("(D) " + tmp.get(3));
-                System.out.println("E) Quit");
+                System.out.println("(E) Quit");
+                System.out.println("Here is the correct answer (Shhhh): " + correctAnswer);
                 System.out.println("Choose from the following options: A, B, C, D, E");
                 number = myOb.nextLine();
                 if (number.equals("A")){
