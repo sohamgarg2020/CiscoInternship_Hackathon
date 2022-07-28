@@ -1,5 +1,4 @@
-[
-    {
+{
         "Easy": {
             "Question 1": {
                 "Question": "What is the output of the following code? \\nvar= \"James Bond\" \\nprint(var[2::-1])",
@@ -276,5 +275,4 @@
                 "Explanation": "a+ mode opens a file for both the reading and appending. The pointer will be placed at the end of the file and new content will be written after the existing content."
             }
         }
-    }
-]
+}

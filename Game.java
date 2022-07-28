@@ -5,10 +5,9 @@ import java.util.Random;
 
 import javax.swing.*;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.*;
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.nio.file.Files;
@@ -109,50 +108,51 @@ public class Game{
             } else {
                 difficulty = "Hard";
             }
-            JSONArray questions = (JSONArray)jsonObject.get(difficulty);
+            JSONObject questions = (JSONObject)jsonObject.get(difficulty);
             Random rand = new Random();
             int upperbound = 9;
-            int questionNumber = rand.nextInt(upperbound);
-            JSONObject questionvalue = (JSONObject)questions.get(questionNumber);
-            String aquestion = (String)questionvalue.get("Question");
+            int questionNumber = rand.nextInt(upperbound) + 1;
+            JSONObject questionvalue = (JSONObject)questions.get("Question " + questionNumber);
+            String aquestion = (String) questionvalue.get("Question");
             System.out.println(aquestion);
-            String d = (String)questionvalue.get("Correct Answer");
+            String correctAns = (String)questionvalue.get("Correct Answer");
             JSONObject wrong = (JSONObject)questionvalue.get("Wrong Answers");
-            String c = (String)wrong.get("Wrong Answer 1");
-            String b = (String)wrong.get("Wrong Answer 2");
-            String a = (String)wrong.get("Wrong Answer 3");
+            String wrongAns1 = (String)wrong.get("Wrong Answer 1");
+            String wrongAns2 = (String)wrong.get("Wrong Answer 2");
+            String wrongAns3 = (String)wrong.get("Wrong Answer 3");
             String explanation = (String)questionvalue.get("Explanation");
 
-            upperbound = 4;
-            int first;
-            first = rand.nextInt(upperbound);
-            int second = first;
-            while (second == first){
-                second = rand.nextInt(upperbound);
-            }
-            int third = second;
-            while (third == second || third == first){
-                third = rand.nextInt(upperbound);
-            }
-            int fourth = 6-first - second - third;
-            first+=1;
-            second+=1;
-            third+=1;
-            fourth += 1;
+            ArrayList<String> tmp = new ArrayList<>();
+            tmp.add(correctAns);
+            tmp.add(wrongAns1);
+            tmp.add(wrongAns2);
+            tmp.add(wrongAns3);
+
+            Collections.shuffle(tmp);
+
+            int correctAnswer = 0;
+            
+            
+
             
             
 
             String number;
             while (true){
-                character(first, a, b, c, d);
-                character(second, a, b, c, d);
-                character(third, a, b, c, d);
-                character(fourth, a, b, c, d);
+                for (int i = 0; i < 4; i ++){
+                    if (tmp.get(i).equals(correctAns)){
+                        correctAnswer = i+1;
+                    }
+                }
+                System.out.println("(A) " + tmp.get(0));
+                System.out.println("(B) " + tmp.get(1));
+                System.out.println("(C) " + tmp.get(2));
+                System.out.println("(D) " + tmp.get(3));
                 System.out.println("E) Quit");
-                System.out.println("Choose one option.");
+                System.out.println("Choose from the following options: A, B, C, D, E");
                 number = myOb.nextLine();
                 if (number.equals("A")){
-                    if (first == 4){
+                    if (correctAnswer == 1){
                         System.out.println("Good Job! That is the correct answer!");
                         player.setCoins(player.getCoins()+10);
                     } else {
@@ -168,7 +168,7 @@ public class Game{
                     System.out.println(explanation);
                     questions();
                 } else if (number.equals("B")){
-                    if (second == 4){
+                    if (correctAnswer == 2){
                         System.out.println("Good Job! That is the correct answer!");
                         player.setCoins(player.getCoins()+10);
                     } else {
@@ -184,7 +184,7 @@ public class Game{
                     System.out.println(explanation);
                     questions();
                 } else if (number.equals("C")){
-                    if (third == 4){
+                    if (correctAnswer == 3){
                         System.out.println("Good Job! That is the correct answer!");
                         player.setCoins(player.getCoins()+10);
                     } else {
@@ -198,9 +198,10 @@ public class Game{
                     System.out.println("You now have " + player.getCoins() + " points.");
                     System.out.println("Here is an explanation:");
                     System.out.println(explanation);
+                    System.out.println("");
                     questions();
                 } else if (number.equals("D")){
-                    if (fourth == 4){
+                    if (correctAnswer == 4){
                         System.out.println("Good Job! That is the correct answer!");
                         player.setCoins(player.getCoins()+10);
                     } else {
@@ -230,19 +231,6 @@ public class Game{
         }
 
     }
-    public static void character(int num, String a, String b, String c, String d){
-        if (num == 1){
-            System.out.println("A) " + a);
-        }
-        if (num == 2){
-            System.out.println("B)" + b);
-        }
-        if (num == 3){
-            System.out.println("C)" + c);
-        }
-        else{
-            System.out.println("D)" + d);
-        }
-        
-    }
+
+
 }
